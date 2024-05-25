@@ -29,6 +29,56 @@ body {
   background-color: #221944;
 }
 
+/* MENUBAR */
+
+.Bar {
+  background-color: #1b1531;
+}
+
+.Bar .LoginBtn {
+  background-color: #bb4222;
+}
+
+
+.scale-up-tr {
+	-webkit-animation: scale-up-tr 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-tr 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.menu-link li:hover {
+  transition: color 1s;
+  color: rgb(238, 255, 15);
+}
+
+ @-webkit-keyframes scale-up-tr {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+  }
+}
+@keyframes scale-up-tr {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+  }
+}
+
 /* SignUp Page */
 .SignUp-Wrapper .SignUpInner {
   height: 30rem;
@@ -187,6 +237,10 @@ body {
   background-color:#1b1531;
 }
 
+.BlogDetailsWrapper .postwrapper .post .reactions {
+  background-color: #bb4222;
+}
+
 .BlogDetailsWrapper .postwrapper .commentbox .commentForm button{
   background-color: #bb4222;
 }
@@ -200,4 +254,69 @@ body {
 
 .DashboardWrapper .postwrapper .postForm button{
   background-color: #bb4222;
+}
+
+/* RESPONSIVENESS */
+@media only screen and (max-width: 650px) {
+
+  .NavLinks {
+    display: none;
+  }
+
+  .MenuIcon {
+    display: flex;
+  }
+
+   /* BreadCrumbs */
+   .breadcrumbs {
+    text-align: center;
+  }
+
+  /* Blogs */
+
+  .BlogsWrapper, .AboutWrapper, .DashboardWrapper,
+  .Contact-Wrapper .ContactInner,
+  .SignUp-Wrapper .SignUpInner,
+  .LogIn-Wrapper .LogInInner, 
+  .PwdRT1-Wrapper .PwdRT1Inner, .PwdRT2-Wrapper .PwdRT2Inner, .PwdRT3-Wrapper .PwdRT3Inner {
+    flex-direction: column;
+  }
+
+  .BlogsWrapper .sideBar, .DashboardWrapper .sideBar {
+    width: 100%;
+  }
+
+  /* About */
+
+  .AboutWrapper .AboutDetails {
+    border: none;
+    border-top: 1px solid white;
+    padding: 0;
+    padding-top: 18px;
+  }
+
+  .AboutWrapper .featuredImage {
+    border: none;
+    border-bottom: 2px solid white;
+  }
+
+  /* Dashboard */
+
+  /* Contact */
+  .Contact-Wrapper .ContactInner, 
+  .SignUp-Wrapper .SignUpInner,
+  .LogIn-Wrapper .LogInInner,
+  .PwdRT1-Wrapper .PwdRT1Inner, .PwdRT2-Wrapper .PwdRT2Inner, 
+  .PwdRT3-Wrapper .PwdRT3Inner{
+    height: 100vh;
+  }
+
+  .Contact-Wrapper .ContactInner .FormElement, 
+  .LogIn-Wrapper .LogInInner .FormElement,
+  .PwdRT1-Wrapper .PwdRT1Inner .FormElement,
+  .PwdRT2-Wrapper .PwdRT2Inner .FormElement,
+  .PwdRT3-Wrapper .PwdRT3Inner .FormElement,
+  .SignUp-Wrapper .SignUpInner .FormElement{
+   padding: 2px 4px;
+  }
 }

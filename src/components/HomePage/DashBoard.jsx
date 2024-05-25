@@ -4,8 +4,9 @@ import { SideBar } from "./SideBar"
 export const DashBoard = () => {
   return (
     <div className="DashboardWrapper w-5/6 h-fit flex gap-4">
-        <div className="postwrapper w-full h-full flex flex-col justify-end items-center gap-5">
-        <div className="post w-full h-full bg-slate-600 rounded-md"></div>
+        <div className="postwrapper w-full h-full flex flex-col justify-start items-center gap-5">
+        <div className="post w-full h-fit bg-slate-600 rounded-md py-5 px-4">
+        </div>
         <div className="createPost w-full h-fit p-4 rounded-md">
                 <h2 className=" text-white mb-4 font-bold mt-3"> PUBLISH A POST </h2>
                 <Form method='post' action="" className="postForm flex flex-col justify-start gap-4 w-full">
