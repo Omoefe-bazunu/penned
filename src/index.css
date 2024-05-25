@@ -1,0 +1,182 @@
+
+/* src/styles/tailwind.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: themeFont, sans-serif;
+  src: url('./src/assets/Font/EB_Garamond,Roboto.zip');
+}
+
+:root {
+  font-family: themeFont;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  margin: 0;
+  padding: 0%;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  background-color: #221944;
+}
+
+/* SignUp Page */
+.SignUp-Wrapper .SignUpInner {
+  height: 30rem;
+}
+
+.SignUp-Wrapper .SignUpInner .featuredImage {
+  background-image: url('./src/assets/GeneralImages/auth.jpg');
+}
+
+.SignUp-Wrapper .SignUpInner .Form .brand, 
+.SignUp-Wrapper .SignUpInner .Form .FormElement input{
+  color:#221944;
+}
+
+.SignUp-Wrapper .SignUpInner .Form .FormElement button{
+  background-color:#221944;
+}
+
+/* Login Page */
+.LogIn-Wrapper .LogInInner {
+  height: 30rem;
+}
+
+.LogIn-Wrapper .LogInInner .featuredImage {
+  background-image: url('./src/assets/GeneralImages/auth.jpg');
+}
+
+.LogIn-Wrapper .LogInInner .Form .brand,
+.LogIn-Wrapper .LogInInner .Form .FormElement .signup,
+.LogIn-Wrapper .LogInInner .Form .FormElement input{
+  color:#221944;
+}
+
+.LogIn-Wrapper .LogInInner .Form .FormElement button{
+  background-color:#221944;
+}
+
+/* PasswordReset Page */
+.PwdRT1-Wrapper .PwdRT1Inner,
+.PwdRT2-Wrapper .PwdRT2Inner,
+.PwdRT3-Wrapper .PwdRT3Inner {
+  height: 30rem;
+}
+
+.PwdRT1-Wrapper .PwdRT1Inner .featuredImage,
+.PwdRT2-Wrapper .PwdRT2Inner .featuredImage,
+.PwdRT3-Wrapper .PwdRT3Inner .featuredImage  {
+  background-image: url('./src/assets/GeneralImages/auth.jpg');
+}
+
+.PwdRT1-Wrapper .PwdRT1Inner .Form .brand,
+.PwdRT1-Wrapper .PwdRT1Inner .Form .FormElement .signup,
+.PwdRT1-Wrapper .PwdRT1Inner .Form .FormElement input,
+.PwdRT2-Wrapper .PwdRT1Inner .Form .brand,
+.PwdRT2-Wrapper .PwdRT1Inner .Form .FormElement .signup,
+.PwdRT2-Wrapper .PwdRT1Inner .Form .FormElement input,
+.PwdRT3-Wrapper .PwdRT3Inner .Form .brand,
+.PwdRT3-Wrapper .PwdRT3Inner .Form .FormElement .signup,
+.PwdRT3-Wrapper .PwdRT3Inner .Form .FormElement input{
+  color:#221944;
+}
+
+.PwdRT1-Wrapper .PwdRT1Inner .Form .FormElement button,
+.PwdRT2-Wrapper .PwdRT2Inner .Form .FormElement button,
+.PwdRT3-Wrapper .PwdRT3Inner .Form .FormElement button{
+  background-color:#221944;
+}
+
+/* NavBar */
+.NavBar {
+  background-color:#221944;
+}
+.Wrapper .NavBar .NavLinks .LoginBtn {
+  background-color: #bb4222;
+}
+
+/* Footer */
+
+.Footer {
+  background-color: #1b1531;
+}
+
+/* SideBar */
+
+.sideBar {
+  background-color: #1b1531;
+}
+
+.sideBar .ads .adsbox .ads1,
+.sideBar .ads .adsbox .ads2,
+.sideBar .ads .adsbox .ads3 {
+  height: 250px;
+}
+
+/* About */
+
+.AboutWrapper .featuredImage {
+  background-image: url('./src/assets/GeneralImages/abt.jpg');
+}
+
+.AboutWrapper .AboutDetails p {
+  line-height: 18px;
+}
+
+/* Contact */
+
+.Contact-Wrapper .ContactInner {
+  height: 30rem;
+}
+
+.Contact-Wrapper .ContactInner .featuredImage {
+  background-image: url('./src/assets/GeneralImages/auth.jpg');
+}
+
+.Contact-Wrapper .ContactInner .Form .header,
+.Contact-Wrapper .ContactInner .Form .FormElement input{
+  color:#221944;
+}
+
+.Contact-Wrapper .ContactInner .Form .FormElement button{
+  background-color:#221944;
+}
+
+/* Blogs */
+
+.BlogsWrapper .posts{
+  background-color:#1b1531;
+}
+
+
+/* BlogDetails */
+
+.BlogDetailsWrapper .postwrapper .post,
+.BlogDetailsWrapper .postwrapper .commentbox {
+  background-color:#1b1531;
+}
+
+.BlogDetailsWrapper .postwrapper .commentbox .commentForm button{
+  background-color: #bb4222;
+}
+
+/* Dashboard */
+
+.DashboardWrapper .postwrapper .post,
+.DashboardWrapper .postwrapper .createPost {
+  background-color:#1b1531;
+}
+
+.DashboardWrapper .postwrapper .postForm button{
+  background-color: #bb4222;
+}
