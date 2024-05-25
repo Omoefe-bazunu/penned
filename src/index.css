@@ -105,6 +105,27 @@ body {
   background-color: #bb4222;
 }
 
+/* BreadCrumbs */
+
+.breadcrumbs > *  {
+  display: inline-block;
+  }
+  
+.breadcrumbs  .crumb:after{
+  Content: '|';
+  margin: 10px;
+  color: white;
+  }
+  
+.breadcrumbs  .crumb:last-child:after {
+  display:none;
+  }
+  
+.breadcrumbs  .crumb a {
+  color: white;
+  } 
+  
+
 /* Footer */
 
 .Footer {

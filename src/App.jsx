@@ -13,7 +13,7 @@ import { DashBoard } from "./components/HomePage/DashBoard"
 
 const router = createBrowserRouter(
   createRoutesFromElements (
-    <Route path="/" element={<RootLayout/>}>
+    <Route path="/Home" element={<RootLayout/>}>
       <Route index element={<Blogs />}/>
       <Route path="about" element={<About />}/>
       <Route path="blogDetails" element={<BlogDetails />}/>
@@ -21,9 +21,9 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact/>}/>
       <Route path="signup" element={<SignUp/>}/>
       <Route path="login" element={<LogIn/>}/>
-      <Route path="pwdRT1" element={<PwdRT1/>}/>
-      <Route path="pwdRT2" element={<PwdRT2/>}/>
-      <Route path="pwdRT3" element={<PwdRT3/>}/>
+      <Route path="passwordReset1" element={<PwdRT1/>}/>
+      <Route path="passwordReset2" element={<PwdRT2/>}/>
+      <Route path="passwordReset3" element={<PwdRT3/>}/>
     </Route>
   )
 )

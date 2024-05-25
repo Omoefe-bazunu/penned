@@ -12,7 +12,7 @@ export const PwdRT3 = () => {
                         <input type="password" placeholder='Confirm password' name='confirmPassword' className=' outline-none border-b-2 border-gray-100 mb-5 w-full' />
                         <button className=' text-white text-nowrap py-2 w-fit px-5 rounded-sm cursor-pointer mt-3'>RESET</button>
                         <div className="signup mt-8 w-full">
-                          <Link to='/login'><p className=' w-full text-sm border-t-2 pt-1 cursor-pointer'>Remembered Password? Login</p></Link>
+                          <Link to='/Home/login'><p className=' w-full text-sm border-t-2 pt-1 cursor-pointer'>Remembered Password? Login</p></Link>
                         </div>
                 </Form>
 
