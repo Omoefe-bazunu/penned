@@ -13,17 +13,17 @@ import { DashBoard } from "./components/HomePage/DashBoard"
 
 const router = createBrowserRouter(
   createRoutesFromElements (
-    <Route path="/Home" element={<RootLayout/>}>
-      <Route index element={<Blogs />}/>
-      <Route path="about" element={<About />}/>
-      <Route path="blogDetails" element={<BlogDetails />}/>
-      <Route path="dashboard" element={<DashBoard />}/>
-      <Route path="contact" element={<Contact/>}/>
-      <Route path="signup" element={<SignUp/>}/>
-      <Route path="login" element={<LogIn/>}/>
-      <Route path="passwordReset1" element={<PwdRT1/>}/>
-      <Route path="passwordReset2" element={<PwdRT2/>}/>
-      <Route path="passwordReset3" element={<PwdRT3/>}/>
+    <Route path="/" element={<RootLayout/>}>
+      <Route path="/" element={<Blogs />}/>
+      <Route path="About" element={<About />}/>
+      <Route path="BlogDetails" element={<BlogDetails />}/>
+      <Route path="Dashboard" element={<DashBoard />}/>
+      <Route path="Contact" element={<Contact/>}/>
+      <Route path="Signup" element={<SignUp/>}/>
+      <Route path="Login" element={<LogIn/>}/>
+      <Route path="PasswordReset1" element={<PwdRT1/>}/>
+      <Route path="PasswordReset2" element={<PwdRT2/>}/>
+      <Route path="PasswordReset3" element={<PwdRT3/>}/>
     </Route>
   )
 )
