@@ -7,7 +7,7 @@ export const LogIn = () => {
             <div className="featuredImage bg-cover bg-center bg-no-repeat h-full bg-slate-500 rounded-md w-full"></div>
             <div className="Form flex flex-col justify-start items-start h-full w-full py-12 px-5 gap-8" >
                 <h2 className='brand text-2xl w-full'>PENNED</h2>
-                <Form method='post' action='/login' className='FormElement flex flex-col justify-start items-start w-full pr-12'>
+                <Form method='post' action='/Login' id='LoginForm' className='FormElement flex flex-col justify-start items-start w-full pr-12'>
                         <input type="email" placeholder='Email' name='email' className=' outline-none border-b-2 border-gray-100 mb-5 w-full' />
                         <input type="password" placeholder='Password' name='password' className='outline-none border-b-2 border-gray-100 w-full mb-1' />
                         <p className='forgotPassword text-right text-sm w-full mb-2 text-red-500 cursor-pointer'><Link to='/PasswordReset1'>Forgot Password?</Link></p>

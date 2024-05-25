@@ -7,9 +7,9 @@ export const SignUp = () => {
             <div className="featuredImage bg-cover bg-center bg-no-repeat h-full bg-slate-500 rounded-md w-full"></div>
             <div className="Form flex flex-col justify-start items-start h-full w-full py-12 px-5 gap-8" >
                 <h2 className='brand text-2xl w-full'>PENNED</h2>
-                <Form method='post' action='#' className='FormElement flex flex-col justify-start items-start w-full pr-12'>
-                        <input type="text" placeholder='Full name' name='fullName' className=' outline-none border-b-2 border-gray-100 mb-5 w-full' />
-                        <input type="text" placeholder='Phone number e.g +23490xxxxxxx' name='phoneNumber' className=' outline-none border-b-2 border-gray-100 w-full mb-5' />
+                <Form method='post' action='/Signup' id='SignupForm' className='FormElement flex flex-col justify-start items-start w-full pr-12'>
+                        <input type="text" placeholder='Full name' name='name' className=' outline-none border-b-2 border-gray-100 mb-5 w-full' />
+                        <input type="text" placeholder='Phone number e.g +23490xxxxxxx' name='phone' className=' outline-none border-b-2 border-gray-100 w-full mb-5' />
                         <input type="email" placeholder='Email' name='email' className=' outline-none border-b-2 border-gray-100 mb-5 w-full' />
                         <input type="password" placeholder='Password' name='password' className=' outline-none border-b-2 border-gray-100 w-full mb-5' />
                         <input type="password" placeholder='Confirm password' name='confirmPassword' className=' outline-none border-b-2 border-gray-100 w-full mb-5' />

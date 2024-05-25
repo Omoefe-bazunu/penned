@@ -9,10 +9,10 @@ export const DashBoard = () => {
         </div>
         <div className="createPost w-full h-fit p-4 rounded-md">
                 <h2 className=" text-white mb-4 font-bold mt-3"> PUBLISH A POST </h2>
-                <Form method='post' action="" className="postForm flex flex-col justify-start gap-4 w-full">
+                <Form method='post' action="/Dashboard" id='createPost' className="postForm flex flex-col justify-start gap-4 w-full">
                     <input placeholder="Post Title" name='title' className=" bg-inherit border-b-2 border-slate-400 outline-none text-white" />
                     <textarea placeholder="Write your post here" name='body' className=" bg-inherit border-b-2 border-slate-400 outline-none text-white" />
-                    <input type="file" className="bg-inherit border-b-2 border-slate-400 outline-none text-white mt-3" />
+                    <input type="file" name='imageurl' className="bg-inherit border-b-2 border-slate-400 outline-none text-white mt-3" />
                     <button className=' text-white text-left text-sm text-nowrap py-2 w-fit pr-5 pl-2 rounded-sm cursor-pointer mt-3 mb-5'>PUBLISH POST</button>
                 </Form>
             </div>

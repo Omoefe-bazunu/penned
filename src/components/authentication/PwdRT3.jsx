@@ -7,7 +7,7 @@ export const PwdRT3 = () => {
             <div className="featuredImage bg-cover bg-center bg-no-repeat h-full bg-slate-500 rounded-md w-full"></div>
             <div className="Form flex flex-col justify-start items-start h-full w-full py-12 px-5 gap-8" >
                 <h2 className='brand text-2xl w-full'>PENNED</h2>
-                <Form method='post' action='/login' className='FormElement flex flex-col justify-start items-start w-full pr-12'>
+                <Form method='post' action='/PasswordReset3' id='PwdRT3' className='FormElement flex flex-col justify-start items-start w-full pr-12'>
                         <input type="password" placeholder='New password' name='password' className=' outline-none border-b-2 border-gray-100 mb-5 w-full' />
                         <input type="password" placeholder='Confirm password' name='confirmPassword' className=' outline-none border-b-2 border-gray-100 mb-5 w-full' />
                         <button className=' text-white text-nowrap py-2 w-fit px-5 rounded-sm cursor-pointer mt-3'>RESET</button>
