@@ -11,7 +11,7 @@ export const SideBar = () => {
                 <Link to='/BlogDetails'>
                 <div className="postdetail flex flex-col justify-start text-white gap-2 cursor-pointer">
                     <h2 className="title text-yellow-300">FRIENDS OF NO COMMON INTEREST...</h2>
-                    <p className=" text-left text-sm">By: Carl Brav</p>
+                    <p className=" text-left text-sm">Carl Brave</p>
                 </div>
                 </Link>
             </div>

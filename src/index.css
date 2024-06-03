@@ -39,7 +39,6 @@ body {
   background-color: #bb4222;
 }
 
-
 .scale-up-tr {
 	-webkit-animation: scale-up-tr 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	        animation: scale-up-tr 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -84,10 +83,6 @@ body {
   height: 30rem;
 }
 
-.SignUp-Wrapper .SignUpInner .featuredImage {
-  background-image: url('./src/assets/GeneralImages/auth.jpg');
-}
-
 .SignUp-Wrapper .SignUpInner .Form .brand, 
 .SignUp-Wrapper .SignUpInner .Form .FormElement input{
   color:#221944;
@@ -102,9 +97,6 @@ body {
   height: 30rem;
 }
 
-.LogIn-Wrapper .LogInInner .featuredImage {
-  background-image: url('./src/assets/GeneralImages/auth.jpg');
-}
 
 .LogIn-Wrapper .LogInInner .Form .brand,
 .LogIn-Wrapper .LogInInner .Form .FormElement .signup,
@@ -123,11 +115,6 @@ body {
   height: 30rem;
 }
 
-.PwdRT1-Wrapper .PwdRT1Inner .featuredImage,
-.PwdRT2-Wrapper .PwdRT2Inner .featuredImage,
-.PwdRT3-Wrapper .PwdRT3Inner .featuredImage  {
-  background-image: url('./src/assets/GeneralImages/auth.jpg');
-}
 
 .PwdRT1-Wrapper .PwdRT1Inner .Form .brand,
 .PwdRT1-Wrapper .PwdRT1Inner .Form .FormElement .signup,
@@ -196,10 +183,6 @@ body {
 
 /* About */
 
-.AboutWrapper .featuredImage {
-  background-image: url('./src/assets/GeneralImages/abt.jpg');
-}
-
 .AboutWrapper .AboutDetails p {
   line-height: 18px;
 }
@@ -225,8 +208,12 @@ body {
 
 /* Blogs */
 
-.BlogsWrapper .posts{
+.BlogsWrapper .posts, .BlogsWrapper .header,  .DashboardWrapper .postwrapper .posts{
   background-color:#1b1531;
+}
+
+.BlogsWrapper .post-inner .posts .postBody {
+  line-height: 18px;
 }
 
 
@@ -241,9 +228,18 @@ body {
   background-color: #bb4222;
 }
 
+.BlogDetailsWrapper .postwrapper .post .reactions .Reaction{
+  transition: scale 0.5;
+}
+
+.BlogDetailsWrapper .postwrapper .post .reactions .Reaction:hover {
+  scale: 0.8;
+}
+
 .BlogDetailsWrapper .postwrapper .commentbox .commentForm button{
   background-color: #bb4222;
 }
+
 
 /* Dashboard */
 
@@ -252,7 +248,7 @@ body {
   background-color:#1b1531;
 }
 
-.DashboardWrapper .postwrapper .postForm button{
+.DashboardWrapper .postwrapper .postForm .Btn{
   background-color: #bb4222;
 }
 
@@ -282,7 +278,7 @@ body {
     flex-direction: column;
   }
 
-  .BlogsWrapper .sideBar, .DashboardWrapper .sideBar {
+  .BlogsWrapper .sideBar, .DashboardWrapper .sideBar, .BlogDetailsWrapper .sideBar {
     width: 100%;
   }
 
@@ -318,5 +314,9 @@ body {
   .PwdRT3-Wrapper .PwdRT3Inner .FormElement,
   .SignUp-Wrapper .SignUpInner .FormElement{
    padding: 2px 4px;
+  }
+
+  .BlogDetailsWrapper {
+    flex-direction: column;
   }
 }

@@ -17,15 +17,14 @@ import { PasswordReset1Form } from "./components/FormHandlers/PasswordReset1"
 import { PasswordReset2Form } from "./components/FormHandlers/PasswordReset2"
 import { PasswordReset3Form } from "./components/FormHandlers/PasswordReset3"
 import { createPostForm } from "./components/FormHandlers/createPostForm"
-import { commentForm } from "./components/FormHandlers/CommentForm"
 
 const router = createBrowserRouter(
   createRoutesFromElements (
     <Route path="/" element={<RootLayout/>}>
       <Route path="/" element={<Blogs />}/>
       <Route path="About" element={<About />}/>
-      <Route path="BlogDetails" element={<BlogDetails />} action={commentForm}/>
-      <Route path="Dashboard" element={<DashBoard />} action={createPostForm}/>
+      <Route path=":id" element={<BlogDetails />}/>
+      <Route path="Dashboard" element={<DashBoard />} action={createPostForm} />
       <Route path="Contact" element={<Contact/>} action={contactForm}/>
       <Route path="Signup" element={<SignUp/>} action={SignupForm}/>
       <Route path="Login" element={<LogIn/>} action={LoginForm}/>
