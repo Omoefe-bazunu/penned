@@ -6,6 +6,7 @@ import { auth } from "../../Firebase";
 export const createPostForm = async ({request}) => {
     const data = await request.formData();
     const postDetails = {
+      name: data.get('name'),
       title: data.get("title"),
       body: data.get("body"),
       imageurl: data.get("imageurl"),
@@ -18,6 +19,7 @@ export const createPostForm = async ({request}) => {
   
       const colRef = collection(dbase, 'posts');
       await addDoc(colRef, {
+        authorName: postDetails.name,
         userEmail: userEmail,
         title: postDetails.title,
         body: postDetails.body,

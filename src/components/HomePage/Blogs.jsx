@@ -11,7 +11,7 @@ export const Blogs = () => {
   
   const fetchImage = async (imageurl) => {
     if (imageurl) {
-      const imageRef = ref(storage, `Posts/${imageurl}`);
+      const imageRef = ref(storage, `posts/${imageurl}`);
       try {
         const url = await getDownloadURL(imageRef);
         return url;
@@ -49,7 +49,7 @@ export const Blogs = () => {
       'July', 'August', 'September', 'October', 'November', 'December'
     ][month];
     const year = date.getFullYear();
-    return `${day} ${monthName}, ${year}`;
+    return `${monthName} ${day}, ${year}`;
   };
   
   return (
@@ -62,9 +62,9 @@ export const Blogs = () => {
             <Link to={post.id} key={post.title}><div className="posts w-full h-fit py-5 px-5 mb-5">
               <h2 className=" text-lg text-yellow-300 text-wrap leading-2 mb-1">{post.title}</h2>
               <div className="features  flex justify-start w-fit gap-2 text-white text-xs mb-4">
-              <div className="author">: {post.userEmail} <span className="mx-1">:</span> {post.formattedDate} <span className="mx-1">:</span> {post.reaction} likes</div>
+              <div className="author">{post.authorName} <span className="mx-1">:</span> {post.formattedDate} <span className="mx-1">:</span> {post.reaction} Upvote</div>
             </div>
-              <img src={post.featuredImageUrl} alt="" className=" w-24 h-24 bg-cover bg-center bg-no-repeat mt-3"/>
+              <img src={post.featuredImageUrl} alt="" className=" w-24 h-24 bg-cover bg-center bg-no-repeat mt-3 text-white"/>
               <p className="postBody text-white whitespace-pre-wrap mt-5">{post.body.slice(0,200)}...</p>
               <p className=" text-yellow-300 text-sm mt-2 mb-4">Read Full Content....</p>
             </div>

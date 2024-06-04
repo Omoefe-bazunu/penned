@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import {getFirestore} from "firebase/firestore";
 import {getAuth, onAuthStateChanged} from "firebase/auth";
 import { getStorage } from "firebase/storage";
+import { SetUpUI } from "./components/SetUpUI";
 
 
 
@@ -23,17 +24,12 @@ const auth = getAuth(app);
 // const analytics = getAnalytics(app);
 
 onAuthStateChanged(auth, (user) => {
-  const loginBtn = document.querySelectorAll(".Login");
-  const logoutBtn = document.querySelectorAll('.Logout')
   if (user) {
     console.log('LOGGED IN' )
     console.log(user)
-    loginBtn.forEach(item => item.style.display = 'none')
-    logoutBtn.forEach(item => item.style.display = 'block')
+    SetUpUI(user)
   } else {
     console.log('NO USER INFO - SIGNUP or LOGIN');
-    loginBtn.forEach(item => item.style.display = 'block')
-    logoutBtn.forEach(item => item.style.display = 'none')
   }
 });
 

@@ -22,7 +22,7 @@ export const Comments = ({postId}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
       try {
-        const docRef = await addDoc(collection(dbase, 'Comments'), {
+        const docRef = await addDoc(collection(dbase, 'comments'), {
           commentText: formData.commentText,
           email: userEmail,
           postId: postId,
@@ -35,7 +35,7 @@ export const Comments = ({postId}) => {
           email: '',
         })
       } catch (e) {
-        alert("Error adding comment: ", e);
+        alert("Signup/Login to make a comment");
       }
   };
 
@@ -50,7 +50,7 @@ export const Comments = ({postId}) => {
  // FETCHING THE COMMENTS IN REAL TIME
 
 const fetchComment = () => {
-  const q = query(collection(dbase, 'Comments'), where("postId", "==", postId), orderBy('CreatedAt', 'desc'));
+  const q = query(collection(dbase, 'comments'), where("postId", "==", postId), orderBy('CreatedAt', 'desc'));
   onSnapshot(q, (snapshot) => {
     const comments = [];
     for (const doc of snapshot.docs) {
@@ -70,21 +70,23 @@ useEffect(() => {
 
 
   return (
-        <div className="commentbox w-full h-fit bg-slate-600 p-4 rounded-md ">
+        <div className="commentbox w-full h-fit bg-slate-600 p-4 rounded-md authenticated">
             <h2 className=" text-white mb-4 font-bold mt-3"> COMMENTS </h2>
             <div className="comments text-white w-full h-fit">
                 {comment && comment.map(comment => (
-                <div key={comment.email} className=" w-full h-fit bg-inherit py-2 flex flex-col gap-2 justify-start">
+                <div key={comment.id} className=" w-full h-fit bg-inherit py-2 flex flex-col gap-2 justify-start">
                     <p className=" italic ">{comment.commentText}</p>
                     <p className=" italic border-b-2 border-slate-400 pb-5">- {comment.email}</p>
                 </div>
                 )) }
-            </div>    
+            </div>
+            <div className="comment  authenticated"> 
             <form method='post' action="/Comments" id='comment' className="commentForm flex flex-col justify-start gap-4 w-full">
                 <h2  className=" text-white border-b-2 border-slate-400 mt-10">Leave a Comment</h2>
                 <textarea type='text' placeholder="Write your comment here" value={formData.commentText} onChange={handleChange} name='commentText' className=" bg-inherit border-b-2 border-slate-400 outline-none text-white" />
                 <button className=' text-white text-sm text-nowrap py-2 w-fit px-5 rounded-sm cursor-pointer mt-3 mb-5' onClick={handleSubmit}>POST COMMENT</button>
             </form>
+            </div>   
         </div>
   )
 }

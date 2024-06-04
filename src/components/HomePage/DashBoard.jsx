@@ -17,13 +17,14 @@ export const DashBoard = () => {
     const user = auth.currentUser;
     if (user) {
       setUserEmail(user.email);
+      console.log(userEmail)
     }
-  }, []);
+  }, [userEmail]);
 
 // This fetches the image for each post
   const fetchImage = async (imageurl) => {
     if (imageurl) {
-      const imageRef = ref(storage, `Posts/${imageurl}`);
+      const imageRef = ref(storage, `posts/${imageurl}`);
       try {
         const url = await getDownloadURL(imageRef);
         return url;
@@ -56,7 +57,7 @@ export const DashBoard = () => {
     }
   }
   fetchPosts();
-  }, []);
+  }, [userEmail]);
 
     // Helper function to format date
     const formatDate = (date) => {
@@ -67,7 +68,7 @@ export const DashBoard = () => {
         'July', 'August', 'September', 'October', 'November', 'December'
       ][month];
       const year = date.getFullYear();
-      return `${day} ${monthName}, ${year}`;
+      return `${monthName} ${day}, ${year}`;
     };
 
   const handleImgChange = async (e) => {
@@ -86,13 +87,14 @@ export const DashBoard = () => {
 
   return (
     <div className="DashboardWrapper w-5/6 h-fit flex gap-4">
-        <div className="postwrapper w-full h-full flex flex-col justify-start items-center gap-5">
+        <div className="postwrapper w-full h-full flex flex-col justify-start gap-5">
         {post && post.map(post => (
             <Link to={`/${post.id}`} key={post.id}><div className="posts w-full h-fit py-5 px-5 mb-5">
               <h2 className=" text-lg text-yellow-300 text-wrap leading-2 mb-1">{post.title}</h2>
-              <p className="date text-xs text-white w-fit italic">{post.formattedDate}<span className="mx-2">:</span>{post.reaction} likes</p>
-              <img src={post.featuredImageUrl} alt="" className=" w-24 h-24 bg-cover bg-center bg-no-repeat mt-3"/>
-              <p className="postBody text-white whitespace-pre-wrap my-5">{post.body.slice(0,200)}...</p>
+              <p className="date text-xs text-white w-fit">{post.formattedDate}<span className="mx-2">:</span>{post.reaction} Upvote</p>
+              <img src={post.featuredImageUrl} alt="" className=" w-24 h-24 bg-cover bg-center bg-no-repeat mt-3 text-white"/>
+              <p className="postBody text-white whitespace-pre-wrap mt-2">{post.body.slice(0,200)}...</p>
+              <p className=" text-yellow-300 text-sm mt-1 mb-4">Read Full Content....</p>
             </div>
             </Link>
           ))
@@ -100,8 +102,9 @@ export const DashBoard = () => {
           }
             <div className="createPost w-full h-fit p-4 rounded-md">
                 <h2 className=" text-white mb-4 font-bold mt-3"> PUBLISH A POST </h2>
-                <Form method='post' action="/Dashboard" id='createPost' className="postForm flex flex-col justify-start gap-4 w-full">
-                    <input placeholder="Post Title" name='title' className=" bg-inherit border-b-2 border-slate-400 outline-none text-white" />
+                <Form method='post' action="/Dashboard" id='createPost' className="postForm flex flex-col justify-start gap-5 w-full">
+                    <input placeholder="Your Name as the author e.g Omoefe Bazunu" name='name' className=" bg-inherit border-b-2 border-slate-400 outline-none text-white" />
+                    <input placeholder="Post Title in BLOCK LETTERS" name='title' className=" bg-inherit border-b-2 border-slate-400 outline-none text-white" />
                     <textarea placeholder="Write your post here" name='body' className=" bg-inherit border-b-2 border-slate-400 outline-none text-white" />
                     <div className="featuredImg flex bg-inherit mt-3 gap-2">
                       <input type="file" name='imageurl' className=" outline-none text-white border-b-2 border-slate-400 w-full" onChange={handleImgChange}/>

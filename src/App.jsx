@@ -17,6 +17,9 @@ import { PasswordReset1Form } from "./components/FormHandlers/PasswordReset1"
 import { PasswordReset2Form } from "./components/FormHandlers/PasswordReset2"
 import { PasswordReset3Form } from "./components/FormHandlers/PasswordReset3"
 import { createPostForm } from "./components/FormHandlers/createPostForm"
+import { ErrorPage } from "./components/ErrorPage"
+import { Messages } from "./components/HomePage/Messages"
+import { AdsImages } from "./components/HomePage/AdsImages"
 
 const router = createBrowserRouter(
   createRoutesFromElements (
@@ -31,6 +34,9 @@ const router = createBrowserRouter(
       <Route path="PasswordReset1" element={<PwdRT1/>} action={PasswordReset1Form}/>
       <Route path="PasswordReset2" element={<PwdRT2/>} action={PasswordReset2Form}/>
       <Route path="PasswordReset3" element={<PwdRT3/>} action={PasswordReset3Form}/>
+      <Route path="Messages" element={<Messages />} />
+      <Route path="AdsImages" element={<AdsImages />} />
+      <Route path="*" element={<ErrorPage/>} />
     </Route>
   )
 )

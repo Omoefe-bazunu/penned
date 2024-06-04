@@ -5,12 +5,12 @@
 @import 'tailwindcss/utilities';
 
 @font-face {
-  font-family: themeFont, sans-serif;
-  src: url('./src/assets/Font/EB_Garamond,Roboto.zip');
+  font-family: "Poppins", sans-serif;
+  src: url('./src/assets/Font/Poppins.zip');
 }
 
 :root {
-  font-family: themeFont;
+  font-family: "Poppins";
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -138,8 +138,15 @@ body {
 .NavBar {
   background-color:#221944;
 }
-.Wrapper .NavBar .NavLinks .LoginBtn {
+.NavBar .NavLinks .LoginBtn,
+.NavBar .NavLinks .LogoutBtn,  
+.Bar .menu-link .Login, 
+.Bar .menu-link .Logout  {
   background-color: #bb4222;
+}
+
+.NavLinks .LogoutBtn {
+  display: none;
 }
 
 /* BreadCrumbs */
@@ -208,7 +215,10 @@ body {
 
 /* Blogs */
 
-.BlogsWrapper .posts, .BlogsWrapper .header,  .DashboardWrapper .postwrapper .posts{
+.BlogsWrapper .posts, .BlogsWrapper .header,  
+.DashboardWrapper .postwrapper .posts,
+.MessagesWrapper .messages,
+.MessagesWrapper .header{
   background-color:#1b1531;
 }
 
@@ -235,6 +245,7 @@ body {
 .BlogDetailsWrapper .postwrapper .post .reactions .Reaction:hover {
   scale: 0.8;
 }
+
 
 .BlogDetailsWrapper .postwrapper .commentbox .commentForm button{
   background-color: #bb4222;

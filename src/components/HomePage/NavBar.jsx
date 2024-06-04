@@ -2,17 +2,26 @@ import { Link } from "react-router-dom"
 import { BreadCrumbs } from "./BreadCrumbs"
 import { TfiList } from "react-icons/tfi";
 import { TfiClose } from "react-icons/tfi";
-import {useState} from 'react'
-import { signOut, onAuthStateChanged} from "firebase/auth";
+import {useState, useEffect} from 'react'
+import { signOut} from "firebase/auth";
 import { auth } from "../../Firebase";
 
 
 export const NavBar = () => {
+  const [user, setUser] = useState('')
+  const User = auth.currentUser;
 
   const signout = () => {
     signOut(auth)
-    
+    console.log('SIGNED OUT')
+    window.location.href = '/Login';
   }
+
+  useEffect(() => {
+    if (User) {
+      setUser(User);
+    }
+  }, [User]);
 
 
 const [toggle, setToggle] = useState(true);
@@ -23,10 +32,10 @@ const [toggle, setToggle] = useState(true);
                 <div className="NavLinks flex justify-end items-center">
                   <Link to='/'><p className=" mr-8 text-white">BLOGS</p></Link>
                   <Link to='/About'><p className=" mr-8 text-white">ABOUT</p></Link>
-                  <Link to='/Dashboard'><p className=" mr-8 text-white">DASHBOARD</p></Link>
+                  <Link to='/Dashboard'><p className=" mr-8 text-white dashboard hidden">DASHBOARD</p></Link>
                   <Link to='/Contact'><p className=" mr-8 text-white">CONTACT</p></Link>
-                  <Link to='/Login'><p className="LoginBtn Login px-5 py-2 text-white rounded-sm text-center w-fit">LOGIN</p></Link>
-                  <p className="LoginBtn Logout hidden px-5 py-2 text-white rounded-sm text-center w-fit cursor-pointer" onClick={signout}>LOGOUT</p>
+                  <Link to='/Login'><button className="LoginBtn Login px-5 py-2 text-white rounded-sm text-center w-fit">LOGIN</button></Link>
+                  <button className="LogoutBtn Logout px-5 py-2 text-white rounded-sm text-center w-fit cursor-pointer" onClick={signout}>LOGOUT</button>
                 </div>
                 <div className="MenuIcon  text-white cursor-pointer hidden justify-center relative">
                   {toggle? <TfiList size = {40} onClick = {() => setToggle(false)} /> 
@@ -38,10 +47,14 @@ const [toggle, setToggle] = useState(true);
                       <ul className='menu-link flex flex-col justify-end gap-3'>
                         <Link to='/'><p className=" mr-8 text-white border-b-2 border-slate-700 pb-1">BLOGS</p></Link>
                         <Link to='About'><p className=" mr-8 text-white border-b-2 border-slate-700 pb-1">ABOUT</p></Link>
-                        <Link to='Dashboard'><p className=" mr-8 text-white border-b-2 border-slate-700 pb-1">DASHBOARD</p></Link>
+                        {user ? ( 
+                        <Link to='Dashboard'><p className=" mr-8 text-white border-b-2 border-slate-700 pb-1 dashboard">DASHBOARD</p></Link> ): (<p></p>) }
                         <Link to='Contact'><p className=" mr-8 text-white border-b-2 border-slate-700 pb-1">CONTACT</p></Link>
-                        <Link to='Login'><p className="LoginBtn Login py-2 pl-2 pr-8 text-white rounded-sm w-fit mb-8 ">LOGIN</p></Link>
-                        <p className="LoginBtn Logout hidden px-5 py-2 text-white rounded-sm text-center w-fit cursor-pointer" onClick={signout}>LOGOUT</p>
+                      {user ? (
+                        <button className="LogoutBtn Logout pl-2 pr-4 py-2 text-white rounded-sm w-fit cursor-pointer mb-5" onClick={signout}>LOGOUT</button>
+                      ) : (
+                        <Link to='/Login'><button className="LoginBtn Login px-5 py-2 text-white rounded-sm text-center w-fit mb-5">LOGIN</button></Link>
+                      )}
                        </ul>
                   </div>
                   
