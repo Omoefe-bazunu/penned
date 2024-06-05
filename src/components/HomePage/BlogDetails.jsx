@@ -2,17 +2,28 @@
 import { SideBar } from "./SideBar"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { collection, doc, onSnapshot, query, runTransaction, where} from "firebase/firestore"
+import { collection, doc, onSnapshot, runTransaction,} from "firebase/firestore"
 import { dbase } from "../../Firebase"
 import { ref, getDownloadURL } from "firebase/storage"
 import { storage } from "../../Firebase"
 import { Comments } from "./Comments"
+import { analytics } from "../../Firebase"
+import { logEvent } from "firebase/analytics"
 
 export const BlogDetails = () => {
   const [post, setPost] = useState(null);
   const { id } = useParams();
   const [ImageSrc, setImageSrc] = useState('')
   const [liked, setLiked] = useState(0)
+
+
+  useEffect(() => {
+    const postId = id;
+    logEvent(analytics, 'select_content', {
+      content_type: 'post',
+      content_id: postId,
+    });
+  }, [id]);
 
   //This code fetches the post image from the firebase storage if the post exists or has a value
   const fetchImage = async () => {
@@ -96,7 +107,7 @@ export const BlogDetails = () => {
       {post && <div className="postwrapper w-full h-full flex flex-col justify-start items-center gap-5">
             <div className="post w-full h-fit bg-slate-600 rounded-md relative py-5 px-4">
             <div className="post1 felx flex-col justify-start gap-4">
-            <h2 className=" text-yellow-300 my-1">{post.title}</h2>
+            <h2 className=" text-yellow-300 my-1 font-semibold">{post.title}</h2>
             <div className="features  flex justify-start w-fit gap-2 text-white text-xs mb-4">
               <div className="author">{post.authorName} <span className="mx-1">:</span> {post.formattedDate} <span className="mx-1">:</span> {post.reaction} Upvote</div>
             </div>

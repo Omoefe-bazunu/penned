@@ -5,14 +5,14 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../../Firebase";
 import { useEffect, useState } from "react";
 import { auth } from "../../Firebase";
-import { collection, query, onSnapshot, where, orderBy } from "firebase/firestore";
+import { collection, query, onSnapshot, where, orderBy, deleteDoc, doc } from "firebase/firestore";
 import { dbase } from "../../Firebase";
 import { Link } from "react-router-dom";
 
 export const DashBoard = () => {
   const [post, setPosts] = useState(null);
   const [userEmail, setUserEmail] = useState('');
-  
+
   useEffect(() => {
     const user = auth.currentUser;
     if (user) {
@@ -84,19 +84,36 @@ export const DashBoard = () => {
     }
   };
 
+      //Deleting the post
+      const deletePost  = (postid) => {
+      if(postid) {
+        const colRef = collection(dbase, 'posts')
+        const docToDelete = doc(colRef, postid)
+        deleteDoc(docToDelete);
+        console.log(postid)
+        alert('POST DELETE SUCCESSFUL');
+      } else {
+        alert('POST DELETE FAILED, CONTACT THE DEVELOPER')
+      }
+      }
+
 
   return (
     <div className="DashboardWrapper w-5/6 h-fit flex gap-4">
         <div className="postwrapper w-full h-full flex flex-col justify-start gap-5">
         {post && post.map(post => (
-            <Link to={`/${post.id}`} key={post.id}><div className="posts w-full h-fit py-5 px-5 mb-5">
-              <h2 className=" text-lg text-yellow-300 text-wrap leading-2 mb-1">{post.title}</h2>
+          <div key={post.id} className="posts w-full flex flex-col h-fit py-5 px-5 mb-5">
+              <Link to={`/${post.id}`} >
+              <h2 className=" text-lg text-yellow-300 text-wrap leading-2 mb-1 font-semibold">{post.title}</h2>
               <p className="date text-xs text-white w-fit">{post.formattedDate}<span className="mx-2">:</span>{post.reaction} Upvote</p>
-              <img src={post.featuredImageUrl} alt="" className=" w-24 h-24 bg-cover bg-center bg-no-repeat mt-3 text-white"/>
-              <p className="postBody text-white whitespace-pre-wrap mt-2">{post.body.slice(0,200)}...</p>
-              <p className=" text-yellow-300 text-sm mt-1 mb-4">Read Full Content....</p>
+              {post.featuredImageUrl ? <img src={post.featuredImageUrl} alt="" className=" w-24 h-24 bg-cover bg-center bg-no-repeat mt-3 mb-5 text-white"/> : <img/> }
+              <p className="postBody text-white whitespace-pre-wrap">{post.body.slice(0,200)}...</p>
+              <p className=" text-yellow-300 text-sm mt-1 mb-4 ">Read Full Content....</p>
+              <p className=" hidden" id={post.id} >{post.id}</p>
+              </Link>
+              <button className=" delete text-white bg-red-600 w-fit text-xs py-2 px-4 mb-5 rounded-sm" onClick={() => {deletePost(`${post.id}`)}}>Delete Post</button>
             </div>
-            </Link>
+
           ))
 
           }

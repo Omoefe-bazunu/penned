@@ -70,9 +70,9 @@ export const SideBar = () => {
             <div className="ads w-full h-fit flex flex-col justify-start gap-5 mt-8">
                 <h2 className=" border-b-2 pb-1 border-white text-white">SPONSORED ADS</h2>
             <div className="adsbox flex flex-col justify-start items-center gap-5 h-full">
-                <img src={ads1} alt='ads-image1' className="ads1 w-full  bg-slate-400 bg-cover bg-center bg-no-repeat"/>
-                <img src={ads2} alt='ads-image2' className="ads1 w-full  bg-slate-400 bg-cover bg-center bg-no-repeat"/>
-                <img src={ads3} alt='ads-image3' className="ads1 w-full  bg-slate-400 bg-cover bg-center bg-no-repeat"/>
+               <a href="https://selar.co/p/178y79?affiliate=sv9939"><img src={ads1} alt='ads-image1' className="ads1 w-full  bg-slate-400 bg-cover bg-center bg-no-repeat"/></a>
+                <a href="https://selar.co/mcd76o"><img src={ads2} alt='ads-image2' className="ads1 w-full  bg-slate-400 bg-cover bg-center bg-no-repeat"/></a>
+                <a href="https://selar.co/44x4wa"><img src={ads3} alt='ads-image3' className="ads1 w-full  bg-slate-400 bg-cover bg-center bg-no-repeat"/></a>
             </div>
 
             </div>

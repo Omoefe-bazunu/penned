@@ -51,6 +51,7 @@ export const Blogs = () => {
     const year = date.getFullYear();
     return `${monthName} ${day}, ${year}`;
   };
+
   
   return (
     <div className="BlogsWrapper w-5/6 h-fit flex gap-4">
@@ -60,12 +61,12 @@ export const Blogs = () => {
         </div>
           {post && post.map(post => (
             <Link to={post.id} key={post.title}><div className="posts w-full h-fit py-5 px-5 mb-5">
-              <h2 className=" text-lg text-yellow-300 text-wrap leading-2 mb-1">{post.title}</h2>
+              <h2 className=" text-lg text-yellow-300 text-wrap font-semibold leading-2 mb-1">{post.title}</h2>
               <div className="features  flex justify-start w-fit gap-2 text-white text-xs mb-4">
               <div className="author">{post.authorName} <span className="mx-1">:</span> {post.formattedDate} <span className="mx-1">:</span> {post.reaction} Upvote</div>
             </div>
-              <img src={post.featuredImageUrl} alt="" className=" w-24 h-24 bg-cover bg-center bg-no-repeat mt-3 text-white"/>
-              <p className="postBody text-white whitespace-pre-wrap mt-5">{post.body.slice(0,200)}...</p>
+              {post.featuredImageUrl ? <img src={post.featuredImageUrl} alt="" className=" w-24 h-24 bg-cover bg-center bg-no-repeat mt-3 mb-5 text-white"/> : <img/> }
+              <p className="postBody text-white whitespace-pre-wrap">{post.body.slice(0,200)}...</p>
               <p className=" text-yellow-300 text-sm mt-2 mb-4">Read Full Content....</p>
             </div>
             </Link>
